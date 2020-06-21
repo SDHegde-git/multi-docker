@@ -22,6 +22,20 @@ after_success:
     - docker push sdhegde/multi-server
     - docker push sdhegde/multi-worker
 
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: us-east-2
+    app: multi-docker
+    env: MultiDocker-env
+    bucket_name: elasticbeanstalk-us-east-2-580691911971
+    bucket_path: docker-multi
+    on:
+      brach: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+
 
 
 
